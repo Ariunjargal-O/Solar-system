@@ -12,13 +12,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .solar-system {
     width: 900px;
     height: 900px;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .sun {
@@ -27,7 +30,7 @@ body {
     width: 100px;
     height: 100px;
     position: absolute;
-
+    z-index: -10;
 }
 
 .orbit {
@@ -41,29 +44,35 @@ body {
 
 @keyframes orbit {
     from {
-      transform: translate(-50%, -50%) rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-      transform: translate(-50%, -50%) rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
 .planet {
     width: var(--planet);
     height: var(--planet);
     position: absolute;
     top: 0;
+    left: 0;
     animation: orbit var(--rotation-period) infinite linear;
+    z-index: 100;
+    background-image: url('assents/earth.png');
+    background-position: center;
+    background-size: cover;
 }
-
 
 .plane-image {
-    background: var(--image-url) center/cover/no-repeat;
+    background-image: var(--image-url);
+    background-size: cover;
 }
 
-.center-position {
+/* .center-position {
     top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-  }
+} */
