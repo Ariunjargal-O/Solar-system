@@ -7,8 +7,8 @@
 body {
     background-image: url(assents/galaxy.jpg);
     background-size: cover;
-    width: 100%;
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,11 +17,16 @@ body {
 .solar-system {
     width: 900px;
     height: 900px;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
 
+.center-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
 .sun {
@@ -29,17 +34,24 @@ body {
     background-size: cover;
     width: 100px;
     height: 100px;
-    position: absolute;
-    z-index: -10;
 }
 
 .orbit {
-    border-radius: 50%;
-    border: 1px dashed white;
     width: var(--orbit);
     height: var(--orbit);
-    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed white;
     animation: orbit var(--orbit-period) infinite linear;
+    position: absolute;
+}
+
+.planet {
+    background-size: cover;
+    width: var(--planet);
+    height: var(--planet);
+    animation: orbit var(--rotation-period) infinite linear;
+    top: 0;
+    translate: 0 -50%
 }
 
 @keyframes orbit {
@@ -51,28 +63,3 @@ body {
         transform: rotate(360deg);
     }
 }
-
-.planet {
-    width: var(--planet);
-    height: var(--planet);
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: orbit var(--rotation-period) infinite linear;
-    z-index: 100;
-    background-image: url('assents/earth.png');
-    background-position: center;
-    background-size: cover;
-}
-
-.plane-image {
-    background-image: var(--image-url);
-    background-size: cover;
-}
-
-/* .center-position {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-} */
